@@ -8,8 +8,7 @@ import	(
 
 func httpRequests(w http.ResponseWriter, r *http.Request)	{
 	r.ParseForm()
-	fmt.Println(r.Form)
-	fmt.Fprintf(w, "Hello!")
+	fmt.Fprintf(w, r.URL.Path)
 }
 
 func main()	{
