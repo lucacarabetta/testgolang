@@ -2,14 +2,19 @@ package main
 
 import	(
 			"fmt"
-			"bufio"
-			"os"
+			"net/http"
+			"log"
 		)
 
+func httpRequests(w http.ResponseWriter, r *http.Request)	{
+	r.ParseForm()
+	fmt.Println(w, r.Form)
+}
+
 func main()	{
-	for true	{
-		reader := bufio.NewReader(os.Stdin)
-		input, _ := reader.ReadString('\n')
-		fmt.Printf(input)
+	http.HandleFunc("/", httpRequests)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil	{
+		log.Fatal("ListenAndServe: ", err)
 	}
 }
