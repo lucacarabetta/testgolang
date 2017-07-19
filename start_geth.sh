@@ -1,2 +1,1 @@
-bootnode --genkey=boot.key
-bootnode --nodekey=boot.key
+geth --datadir=/blockchain/testnode --fast init /blockchain/genesis.json
