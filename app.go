@@ -1,14 +1,29 @@
 package main
 
 import	(
-			"fmt"
+			/*"fmt"*/
 			"net/http"
 			"log"
 		)
 
 func httpRequests(w http.ResponseWriter, r *http.Request)	{
-	r.ParseForm()
+	/*r.ParseForm()
 	fmt.Fprintf(w, r.URL.Path)
+	switch r.URL.Path	{
+	case "/send/ether":
+			eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(0.05, "ether")})
+	}*/
+}
+
+func connectToBlockchain()	{
+
+}
+
+func printBlockchain()	{
+
+}
+
+func sendValue()	{
 }
 
 func main()	{
