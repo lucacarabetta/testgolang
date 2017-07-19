@@ -5,9 +5,8 @@ import	(
 			"net/http"
 			"log"
 			"os"
+			"eth"
 		)
-
-import "github.com/ethereum/go-ethereum"
 
 func httpRequests(w http.ResponseWriter, r *http.Request)	{
 	
