@@ -1,0 +1,1 @@
+geth --datadir=/blockchain/testnode --fast

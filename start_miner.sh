@@ -1,0 +1,1 @@
+geth --datadir=/blockchain/testnode --mine --minerthreads=1 --etherbase=0xbc30b1b84dbc43bf00d1cf7507bb949e2a4c7a44
