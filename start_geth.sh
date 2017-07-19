@@ -1,1 +1,2 @@
-geth --datadir=/blockchain/testnode --fast
+bootnode --genkey=boot.key
+bootnode --nodekey=boot.key
