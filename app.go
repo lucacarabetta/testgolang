@@ -5,7 +5,7 @@ import	(
 			"net/http"
 			"log"
 			"os"
-			"github.com/ethereum/go-ethereum/"
+			//"github.com/ethereum/go-ethereum/"
 		)
 
 func httpRequests(w http.ResponseWriter, r *http.Request)	{
@@ -18,7 +18,7 @@ func httpRequests(w http.ResponseWriter, r *http.Request)	{
 			os.Exit(0)
 		case "/send/ether":
 			fmt.Fprintf(w, "Sending Ether")
-			#fmt.Fprintf(w, "Sending Ether from"+ eth.coinbase +"to"+ eth.accounts[1])
+			//fmt.Fprintf(w, "Sending Ether from"+ eth.coinbase +"to"+ eth.accounts[1])
 			//eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(0.05, "ether")})
 	}
 }
