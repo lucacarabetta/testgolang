@@ -17,8 +17,9 @@ func httpRequests(w http.ResponseWriter, r *http.Request)	{
 		case "/exit":
 			os.Exit(0)
 		case "/send/ether":
-			fmt.Fprintf(w, "Sending Ether<br>")
-			fmt.Fprintf(w, "Sending Ether from"+ eth.coinbase +"to"+ eth.accounts[1] +"<br>")
+			fmt.Fprintf(w, ethutil.ReadConfig(".test", ethutil.LogStd, nil, "MyEthApp"))
+			//fmt.Fprintf(w, "Sending Ether<br>")
+			//fmt.Fprintf(w, "Sending Ether from"+ eth.coinbase +"to"+ eth.accounts[1] +"<br>")
 			//eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(0.05, "ether")})
 	}
 }
