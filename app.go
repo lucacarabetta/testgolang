@@ -5,8 +5,13 @@ import	(
 			"net/http"
 			"log"
 			"os"
-			"github.com/ethereum/go-ethereum/eth"
+			"github.com/ethereum/go-ethereum/rpc"
+			"time"
 		)
+
+type Block struct {
+	Number *big.Int
+}
 
 func httpRequests(w http.ResponseWriter, r *http.Request)	{
 	
@@ -16,10 +21,23 @@ func httpRequests(w http.ResponseWriter, r *http.Request)	{
 	switch r.URL.Path	{
 		case "/exit":
 			os.Exit(0)
-		case "/send/ether":
-			fmt.Fprintf(w, "Sending Ether<br>")
-			fmt.Fprintf(w, "Sending Ether from"+ eth.coinbase +"to"+ eth.accounts[1] +"<br>")
-			//eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(0.05, "ether")})
+		case "/test/blockchain":
+			client, _ := rpc.Dial("ws://127.0.0.1:8485")
+			subch := make(chan Block)
+			// Ensure that subch receives the latest block.
+	go func() {
+		for i := 0; ; i++ {
+			if i > 0 {
+				time.Sleep(2 * time.Second)
+			}
+			subscribeBlocks(client, subch)
+		}
+	}()
+
+	// Print events from the subscription as they arrive.
+	for block := range subch {
+		fmt.Println("latest block:", block.Number)
+	}
 	}
 }
 
