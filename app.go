@@ -7,6 +7,7 @@ import	(
 			"os"
 			"github.com/ethereum/go-ethereum/rpc"
 			"time"
+			"math/big"
 		)
 
 type Block struct {
